@@ -1,17 +1,14 @@
-
-    form.search style="width: 100%; position: relative;"
-      input.searchTerm type="text" placeholder="Please Enter The Movie Title ..." style="@include box-sizing(border-box); 
-        width: 30%; 
-        border: 1px solid #0B0B61;
-        padding: 10px;
-        height: 40px;
-        border-radius: 5px;
-        outline: none;"
-      button.searchButton type="submit" style="position: relative; top: 0;
-        left: 10px;
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        opacity: 10;
-        cursor: pointer;" Go!
-      
+form.search action="/movie" method="post"
+  input.searchTerm name="movie_title" type="text" placeholder="Please Enter The Movie Title ..."
+  button.searchButton type="submit"
+    | Go!
+    
+- unless @movie.nil?
+  table class="table"
+    thead
+      tr
+        th Movie Title
+    tbody
+      tr
+        td
+          a href="/movie/#{@movie.title}" #{@movie.title}

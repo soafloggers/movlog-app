@@ -1,0 +1,24 @@
+form.search {
+  width: 100%;
+  position: relative;
+}
+
+input.searchTerm {
+  @include box-sizing(border-box);
+  width: 30%;
+  border: 1px solid #0B0B61;
+  padding: 10px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+}
+
+button.searchButton {
+  position: relative; top: 0;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  opacity: 10;
+  cursor: pointer;
+}
