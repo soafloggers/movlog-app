@@ -1,19 +1,35 @@
 doctype html
 html
   head
-    title Slim Examples
-    meta name="keywords" content="template language"
-    meta name="author" content="author"
-    javascript:
-      alert('Slim supports embedded javascript!')
+    title Movlog
 
+    / Bootstrap CSS and theme (United Theme)
+    link{
+      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css"
+      integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT"
+      rel="stylesheet" 
+      crossorigin="anonymous"
+    }
+    / Custom CSS
+    / link rel='stylesheet' href='/style.css'
   body
-    h1 Markup examples
+    / JQuery and Bootstrap JS
+    script{
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous"
+    }
+    script{
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+      integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+      crossorigin="anonymous"
+    }
 
-    #content
-      p This example shows you how a basic Slim file looks.
+    / == slim :nav
+    .container id='html_body'
+      h1 Movlog
+      p Find the filming locations of your favorite movie and start your journey!
 
-    == yield
-
-    div id="footer"
-      | Copyright &copy; 2016
+      section
+        include :flash_bar
+        == yield

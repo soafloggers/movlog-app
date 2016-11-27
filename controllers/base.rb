@@ -5,9 +5,6 @@ class MovlogApp < Sinatra::Base
   configure do
     Econfig.env = settings.environment.to_s
     Econfig.root = File.expand_path('..', settings.root)
-    Skyscanner::SkyscannerApi.config.update(api_key: config.SKY_API_KEY)
-    Airbnb::AirbnbApi.config.update(client_id: config.AIRBNB_CLIENT_ID)
-    Geonames::GeonamesApi.config.update(username: config.GEONAMES_USERNAME)
   end
 
   set :views, File.expand_path('../../views', __FILE__)

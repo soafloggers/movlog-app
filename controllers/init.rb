@@ -2,7 +2,8 @@
 require 'sinatra'
 require 'slim'
 require 'econfig'
-require 'movlog'
+require 'http'
+require 'rack-flash'
 
 require_relative 'base'
 
