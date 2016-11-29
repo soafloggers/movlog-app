@@ -6,6 +6,10 @@ class MovlogApp < Sinatra::Base
     slim :movie
   end
 
+  get "/result/?" do
+    slim :search_result
+  end
+
   post "/movie/?" do
     url_request = UrlRequest.call(params)
     result = CreateNewMovie.call(url_request)

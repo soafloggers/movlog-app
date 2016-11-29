@@ -1,7 +1,16 @@
-form.search action="/movie" method="post"
-  input.searchTerm name="movie_title" type="text" placeholder="Please Enter The Movie Title ..."
-  button.searchButton type="submit"
-    | Go!
+div.container
+  div.col-xs-5
+    div.form
+    .input-group.input-group-lg
+      input.form-control placeholder="Please Enter The Movie Title ..." type="text"
+      .input-group-btn
+        button.btn.btn-default type="submit" 
+          i.glyphicon.glyphicon-search
+    
+div.container
+  button.btn.btn-info type="button" style='margin-top:25px; margin-right:10px; margin-left:30px;' Harry Potter 1
+  button.btn.btn-info type="button" style='margin-top:25px; margin-right:10px;' Harry Potter 2
+  button.btn.btn-info type="button" style='margin-top:25px; margin-right:10px;' Harry Potter 3
     
 - unless @movie.nil?
   table class="table"
