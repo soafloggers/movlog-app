@@ -12,10 +12,9 @@ class MovlogApp < Sinatra::Base
 
   post "/movie/?" do
     url_request = UrlRequest.call(params)
-    result = CreateNewMovie.call(url_request)
+    result = FindMovies.call(url_request)
     if result.success?
       @movie = result.value
-      flash[:notice] = 'Movie successfully added'
     else
       flash[:error] = result.value.message
     end
