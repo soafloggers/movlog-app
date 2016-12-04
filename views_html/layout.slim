@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Movlog
+
+    / Bootstrap CSS and theme (United Theme)
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    
+    / Custom CSS
+    link rel='stylesheet' href='css/style.css'
+
+  body
+  
+    / JQuery and Bootstrap JS
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+    script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    
+    / == slim :nav
+    div.container
+      div.jumbotron id='html_body'
+        h1.text-info Movlog
+        p.text-info Find the filming locations of your favorite movie and start your journey!
+
+      section
+        include :flash_bar
+        == yield
