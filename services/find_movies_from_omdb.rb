@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Gets list of all movies from API
-class FindMovies
+class FindMoviesFromOMDB
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 

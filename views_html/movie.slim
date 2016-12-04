@@ -2,22 +2,27 @@ div.container-fluid
   div.col-xs-5
     div.form
     .input-group.input-group-lg
-      input.form-control placeholder="Please Enter The Movie Title ..." type="text"
+      input.form-control {
+        id="movie_title_input"
+        placeholder="Please Enter The Movie Title ..."
+        type="text"
+      }
       .input-group-btn
-        button.btn.btn-default type="submit" 
+        button.btn.btn-default id="movie_search_submit" type="submit" 
           i.glyphicon.glyphicon-search
     
-div.container
-  button.btn.btn-info type="button" style='margin-top:25px; margin-right:10px; margin-left:30px;' Harry Potter 1
-  button.btn.btn-info type="button" style='margin-top:25px; margin-right:10px;' Harry Potter 2
-  button.btn.btn-info type="button" style='margin-top:25px; margin-right:10px;' Harry Potter 3
+/ div.container
+  / button.btn.btn-info class="btn search-result" type="button" style='margin-top:25px; margin-right:10px; margin-left:30px;' Harry Potter 1
+  / button.btn.btn-info class="btn search-result" type="button" style='margin-top:25px; margin-right:10px;' Harry Potter 2
+  / button.btn.btn-info class="btn search-result" type="button" style='margin-top:25px; margin-right:10px;' Harry Potter 3
     
-- unless @movie.nil?
-  table class="table"
-    thead
-      tr
-        th Movie Title
-    tbody
-      tr
+table class="table"
+  thead
+    tr
+      th Movie Titles
+  tbody
+    - @data&.movies&.each do |movie|
+      tr class="search_results"
         td
-          a href="/movie/#{@movie.title}" #{@movie.title}
+          span class="movie_title"
+            a href="/movie/#{movie[:title]}" #{movie[:title]}
