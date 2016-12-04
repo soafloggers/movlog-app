@@ -22,7 +22,7 @@ describe 'Homepage' do
       @browser.h1.text.must_include 'Movlog'
 
       # THEN
-      @browser.input(id: 'movie_title_input').visible?.must_equal true
+      @browser.input(id: 'title').visible?.must_equal true
       @browser.button(id: 'movie_search_submit').visible?.must_equal true
     end
   end
@@ -33,12 +33,12 @@ describe 'Homepage' do
       @browser.goto homepage
 
       # WHEN: input a valid movie title
-      @browser.text_field(id: 'movie_title_input').set(HAPPY_MOVIE_TITLE)
+      @browser.text_field(id: 'title').set(HAPPY_MOVIE_TITLE)
       @browser.button(id: 'movie_search_submit').click
 
       # THEN: movies should be present on homepage
       movie_title_span = @browser.spans(class: 'movie_title').last
-      movie_title_span.text.must_include 'Star'
+      movie_title_span.text.must_include 'star'
     end
   end
 end
