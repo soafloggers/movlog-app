@@ -18,16 +18,44 @@ class MovlogApp < Sinatra::Base
     end
   end
 
-  post "/movie/?" do
+  get "/movie/?" do
     url_request = UrlRequest.call(params)
-    result = FindMovies.call(url_request)
-    if result.success?
-      @movie = result.value
+    results = FindMoviesFromDB.call(url_request)
+    if results.success? && results.value.movies.count != 0
+      @data = results.value
+      puts @data
     else
-      flash[:error] = result.value.message
+      result = FindMoviesFromOMDB.call(url_request)
+      if result.success?
+        @data = result.value
+      else
+        flash[:error] = result.value.message
+      end
+      # flash[:error] = results.value.message
     end
 
-    # redirect '/'
     slim :movie
   end
+
+  # get '/movie/?' do
+  #   results = FindMoviesFromDB.call(params)
+  #   if results.success?
+  #     @data = results.value
+  #   else
+  #     flash[:error] = results.value.message
+  #   end
+  # end
+
+  # post "/movie/?" do
+  #   url_request = UrlRequest.call(params)
+  #   result = FindMoviesFromOMDB.call(url_request)
+  #   if result.success?
+  #     @movie = result.value
+  #   else
+  #     flash[:error] = result.value.message
+  #   end
+
+    # redirect '/'
+    # slim :movie
+  # end
 end

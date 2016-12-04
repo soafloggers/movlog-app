@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Gets list of all movies from API
-class FindMovies
+class FindMoviesFromOMDB
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
@@ -15,7 +15,7 @@ class FindMovies
 
   register :validate_url_request, lambda { |url_request|
     if url_request.success?
-      Right(url_request[:movie_title])
+      Right(url_request[:title])
     else
       message = ErrorFlattener.new(
         ValidationError.new(url_request)
@@ -34,10 +34,10 @@ class FindMovies
   }
 
   register :return_api_result, lambda { |http_result|
-    data = http_result.body.to_s
-    puts data
+    data = JSON.parse(http_result.body)
     if http_result.status == 200
-      Right(MovieRepresenter.new(Movie.new).from_json(data))
+      result = { title: data[:title], movies: [data] }
+      Right(MoviesSearchResultsRepresenter.new(MoviesSearchResults.new).from_json(result.to_json))
     else
       message = ErrorFlattener.new(
         ApiErrorRepresenter.new(ApiError.new).from_json(data)
