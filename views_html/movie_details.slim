@@ -1,7 +1,7 @@
 div.container-fluid
   h2
     |Results for:
-    span style="color:#0957AB;margin-left:5px;" @movie_details.title
+    span style="color:#0957AB;margin-left:5px;" #{@movie_details.title}
 
 div.container
   div.well.well-sm style="width:99%;" discriptions
@@ -12,7 +12,7 @@ div.container
     span
       - @movie_details.locations&.each.with_index do |location, i|
         button.btn.btn-warning type="button" style='margin-left:10px;' location.name
-    
+
 div.container
   div.row.col-sm-6 style='margin-top:20px;'
     div.panel.panel-default

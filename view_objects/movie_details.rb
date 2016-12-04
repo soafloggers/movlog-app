@@ -5,9 +5,10 @@ class MovieDetailsView
   SHORT_STR_SIZE = 80
   MOVIE_URL_PREFIX = 'http://www.imdb.com/title/'
 
-  attr_reader :movie_title, :movie_url, :locations
+  attr_reader :title, :movie_url, :locations
 
   def initialize(moive_details)
+    @title = moive_details.movie_title
     @locations = format_all_locations(moive_details.locations)
   end
 
@@ -15,7 +16,7 @@ class MovieDetailsView
 
   def format_all_locations(locations)
     new_postings = locations&.map do |location|
-      formatted_posting(location)
+      formatted_location(location)
     end
   end
 
