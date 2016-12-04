@@ -34,7 +34,7 @@ class FindMoviesFromOMDB
   }
 
   register :return_api_result, lambda { |http_result|
-    data = JSON.parse(http_result.body)
+    data = JSON.parse(http_result.body.to_s)
     if http_result.status == 200
       result = { title: data[:title], movies: [data] }
       Right(MoviesSearchResultsRepresenter.new(MoviesSearchResults.new).from_json(result.to_json))
