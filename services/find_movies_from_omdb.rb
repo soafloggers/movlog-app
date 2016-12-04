@@ -5,22 +5,19 @@ class FindMoviesFromOMDB
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
-  def self.call(url_request)
+  def self.call(params)
     Dry.Transaction(container: self) do
       step :validate_url_request
       step :call_api_to_load_movie
       step :return_api_result
-    end.call(url_request)
+    end.call(params)
   end
 
-  register :validate_url_request, lambda { |url_request|
-    if url_request.success?
-      Right(url_request[:movie_title])
+  register :validate_url_request, lambda { |params|
+    if params[:title]?
+      Right(params[:title])
     else
-      message = ErrorFlattener.new(
-        ValidationError.new(url_request)
-      ).to_s
-      Left(Error.new(message))
+      Left(Error.new('title not found'))
     end
   }
 

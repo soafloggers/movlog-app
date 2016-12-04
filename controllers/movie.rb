@@ -16,8 +16,7 @@ class MovlogApp < Sinatra::Base
       @data = results.value
       puts @data
     else
-      url_request = UrlRequest.call(params)
-      result = FindMoviesFromOMDB.call(url_request)
+      result = FindMoviesFromOMDB.call(params)
       if result.success?
         @data = result.value
       else
