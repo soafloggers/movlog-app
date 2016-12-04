@@ -1,26 +1,25 @@
 div.container-fluid
-  h2 
+  h2
     |Results for:
-    span style="color:#0957AB;margin-left:5px;" Harry Potter 1
+    span style="color:#0957AB;margin-left:5px;" @movie_details.title
 
 div.container
   div.well.well-sm style="width:99%;" discriptions
 
 div.container
-  h2 
+  h2
     |Filming locations:
     span
-      button.btn.btn-warning type="button" style='margin-left:10px;' New York
-      button.btn.btn-warning type="button" style='margin-left:10px;' London
-      button.btn.btn-warning type="button" style='margin-left:10px;' Taipei
+      - @movie_details.locations&.each.with_index do |location, i|
+        button.btn.btn-warning type="button" style='margin-left:10px;' location.name
     
 div.container
   div.row.col-sm-6 style='margin-top:20px;'
     div.panel.panel-default
-      div.panel-heading 
+      div.panel-heading
         | Rooms Info:
         span.dropup style='margin-left:5px;'
-          button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+          button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
             | New York Manhattan
             span.caret
           ul.dropdown-menu
@@ -30,18 +29,18 @@ div.container
               a href="#"  Brooklyn
             li
               a href="#"  Queens
-                
-      div.panel-body 
+
+      div.panel-body
         div.list-group
           a.list-group-item href="#"  First item
           a.list-group-item href="#"  Second item
           a.list-group-item href="#"  Third item
   div.row.col-sm-6 style='margin-top:20px; margin-left:20px;'
     div.panel.panel-default
-      div.panel-heading 
+      div.panel-heading
         |Airlines Info: From
         span.dropup style='margin-left:5px;'
-          button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" 
+          button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
             | Taoyuan Airport
             span.caret
           ul.dropdown-menu
@@ -56,7 +55,7 @@ div.container
           ul.dropdown-menu
             li
               a href="#"  New York XXX Airport
-                  
+
       div.panel-body
         div.list-group
           a.list-group-item href="#"  First item

@@ -1,13 +1,21 @@
 # frozen_string_literal: true
 
-# MovlogAPI web service
+# MovlogAPP web service
 class MovlogApp < Sinatra::Base
   get "/?" do
     slim :movie
   end
 
-  get "/result/?" do
-    slim :search_result
+  get "/movie/:title/?" do
+    movie_details = GetMovieDetails.call(params)
+    if movie_details.success?
+      movie_locations = movie_details.value
+      @movie_details = MovieDetailsView.new(movie_locations)
+      slim :movie_details
+    else
+      flash[:error] = 'Could not find that movie -- we are investigating!'
+      redirect '/'
+    end
   end
 
   post "/movie/?" do
