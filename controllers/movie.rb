@@ -11,12 +11,13 @@ class MovlogApp < Sinatra::Base
   end
 
   get "/movie/?" do
-    results = FindMoviesFromDB.call(params)
-    if results.success?
+    url_request = UrlRequest.call(params)
+    results = FindMoviesFromDB.call(url_request)
+    if results.success? && results.value.movies.count != 0
       @data = results.value
       puts @data
     else
-      result = FindMoviesFromOMDB.call(params)
+      result = FindMoviesFromOMDB.call(url_request)
       if result.success?
         @data = result.value
       else
