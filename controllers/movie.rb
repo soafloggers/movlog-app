@@ -14,7 +14,6 @@ class MovlogApp < Sinatra::Base
     results = FindMoviesFromDB.call(params)
     if results.success?
       @data = results.value
-      puts @data
     else
       flash[:error] = results.value.message
     end
