@@ -4,14 +4,14 @@ div.container-fluid
     span style="color:#0957AB;margin-left:5px;" #{@movie_details.title}
 
 div.container
-  div.well.well-sm style="width:99%;" discriptions
+  div.well.well-sm style="width:99%;" description
 
 div.container
   h2
     |Filming locations:
     span
-      - @movie_details.locations&.each.with_index do |location, i|
-        button.btn.btn-warning type="button" style='margin-left:10px;' location.name
+      - @movie_details.locations&.each do |location|
+        button.btn.btn-warning type="button" style='margin-left:10px;' #{location.name}
 
 div.container
   div.row.col-sm-6 style='margin-top:20px;'
