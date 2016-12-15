@@ -1,29 +1,13 @@
 div.container-fluid
   div.col-xs-5
-    / div.form
-    / .input-group.input-group-lg
-      / input.form-control {
-        / id="movie_title_input"
-        / placeholder="Please Enter The Movie Title ..."
-        / type="text"
-      / }
-    form role="form" action="/movie" method='get' id='search-form'
-      div class="form-movie"
+    form role="form" action="/movie" method="get" id="search-form"
+      div.form-movie
         label for='title'
-        input{
-          type='text'
-          name='title'
-          id='title'
-          class="form-control"
-          placeholder="Enter Movie Title"
-        }
-      input-group-btn
-        button.btn.btn-default id="movie_search_submit" type="submit" Go!
-
-/ div.container
-  / button.btn.btn-info class="btn search-result" type="button" style='margin-top:25px; margin-right:10px; margin-left:30px;' Harry Potter 1
-  / button.btn.btn-info class="btn search-result" type="button" style='margin-top:25px; margin-right:10px;' Harry Potter 2
-  / button.btn.btn-info class="btn search-result" type="button" style='margin-top:25px; margin-right:10px;' Harry Potter 3
+        .input-group.input-group-lg
+          input.form-control name="title" id="title" placeholder="Please Enter The Movie Title ..." type="text" style="margin-bottom:20px;"
+          .input-group-btn
+            button.btn.btn-default id="movie_search_submit" type="submit" style="margin-bottom:20px;"
+              i.glyphicon.glyphicon-search
 
 table class="table"
   thead
@@ -32,6 +16,6 @@ table class="table"
   tbody
     - @data&.movies&.each do |movie|
       tr class="search_results"
-        td
-          span class="movie_title"
-            a href="/movie/#{movie[:title]}" #{movie[:title]}
+        td 
+          span class="movie_title" 
+            a.list-group-item  href="/movie/#{movie[:title]}" style="margin-top:20px;" #{movie[:title]}
