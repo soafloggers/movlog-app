@@ -4,14 +4,14 @@ require_relative 'spec_helper'
 describe 'Homepage' do
   before do
     unless @browser
-      @headless = Headless.new
+      # @headless = Headless.new
       @browser = Watir::Browser.new
     end
   end
 
   after do
     @browser.close
-    @headless.destroy
+    # @headless.destroy
   end
 
   describe 'Page elements' do
@@ -20,17 +20,18 @@ describe 'Homepage' do
     it '(HAPPY) should see website features' do
       visit MoviesPage do |page|
       # GIVEN
-        page.title.must_include 'Movlog'
         page.heading.must_include 'Movlog'
 
         # THEN
-        page.movie_input.visible?.must_equal true
-        page.search_movie.visible?.must_equal true
+        page.movie_input_element.visible?.must_equal true
+        page.search_movie_element.visible?.must_equal true
       end
     end
   end
 
   describe 'Searching a movie' do
+    include PageObject::PageFactory
+
     it '(HAPPY) should be able to find movies' do
       visit MoviesPage do |page|
         # WHEN: input a valid movie title
@@ -38,7 +39,7 @@ describe 'Homepage' do
         page.search_movie
 
         # THEN: movies should be present on homepage
-        page.last_row.link_element.text.must_include 'star'
+        page.last_row.link_element.text.must_include 'Hobbits'
       end
     end
   end
