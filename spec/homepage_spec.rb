@@ -38,7 +38,7 @@ describe 'Homepage' do
 
       # THEN: movies should be present on homepage
       movie_title_span = @browser.spans(class: 'movie_title').last
-      movie_title_span.text.must_include 'star'
+      movie_title_span.text.must_include 'Star'
     end
   end
 end

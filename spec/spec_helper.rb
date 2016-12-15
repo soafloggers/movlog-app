@@ -16,5 +16,5 @@ def homepage
   HOST
 end
 
-HAPPY_MOVIE_TITLE = 'star wars'
+HAPPY_MOVIE_TITLE = 'star'
 SAD_MOVIE_TITLE = 'sadmovie'
