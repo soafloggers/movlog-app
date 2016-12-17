@@ -15,30 +15,32 @@ describe 'Homepage' do
   end
 
   describe 'Page elements' do
-    it '(HAPPY) should see website features' do
-      # GIVEN
-      @browser.goto homepage
-      @browser.title.must_include 'Movlog'
-      @browser.h1.text.must_include 'Movlog'
+    include PageObject::PageFactory
 
-      # THEN
-      @browser.input(id: 'title').visible?.must_equal true
-      @browser.button(id: 'movie_search_submit').visible?.must_equal true
+    it '(HAPPY) should see website features' do
+      visit MoviesPage do |page|
+      # GIVEN
+        page.heading.must_include 'Movlog'
+
+        # THEN
+        page.movie_input_element.visible?.must_equal true
+        page.search_movie_element.visible?.must_equal true
+      end
     end
   end
 
   describe 'Searching a movie' do
+    include PageObject::PageFactory
+
     it '(HAPPY) should be able to find movies' do
-      # GIVEN: on the homepage
-      @browser.goto homepage
+      visit MoviesPage do |page|
+        # WHEN: input a valid movie title
+        page.movie_input = HAPPY_MOVIE_TITLE
+        page.search_movie
 
-      # WHEN: input a valid movie title
-      @browser.text_field(id: 'title').set(HAPPY_MOVIE_TITLE)
-      @browser.button(id: 'movie_search_submit').click
-
-      # THEN: movies should be present on homepage
-      movie_title_span = @browser.spans(class: 'movie_title').last
-      movie_title_span.text.must_include 'star'
+        # THEN: movies should be present on homepage
+        page.last_row.link_element.text.must_include 'Hobbits'
+      end
     end
   end
 end

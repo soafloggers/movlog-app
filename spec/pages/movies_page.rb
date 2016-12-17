@@ -7,6 +7,7 @@ class MoviesPage
   page_url 'http://localhost:9000/'
 
   h1(:heading)
+  text_field(:movie_input, id:'title')
   button(:search_movie, id: 'movie_search_submit')
   table(:movies_table, id: 'movies_table')
   indexed_property(
