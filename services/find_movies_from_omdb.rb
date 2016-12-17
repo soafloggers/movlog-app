@@ -5,20 +5,12 @@ class FindMoviesFromOMDB
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
-  def self.call(url_request)
-    Dry.Transaction(container: self) do
-      step :validate_url_request
-      step :call_api_to_load_movie
-      step :return_api_result
-    end.call(url_request)
-  end
-
-  register :validate_url_request, lambda { |url_request|
-    if url_request.success?
-      Right(url_request[:title])
+  register :validate_request, lambda { |movie_request|
+    if movie_request.success?
+      Right(movie_request[:title])
     else
       message = ErrorFlattener.new(
-        ValidationError.new(url_request)
+        ValidationError.new(movie_request)
       ).to_s
       Left(Error.new(message))
     end
@@ -52,6 +44,14 @@ class FindMoviesFromOMDB
       Left(Error.new(message))
     end
   }
+
+  def self.call(movie_request)
+    Dry.Transaction(container: self) do
+      step :validate_request
+      step :call_api_to_load_movie
+      step :return_api_result
+    end.call(movie_request)
+  end
 
   private_class_method
 
