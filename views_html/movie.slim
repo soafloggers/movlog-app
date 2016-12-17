@@ -24,12 +24,12 @@ table class="table" id="movies_table"
                 .modal-content
                   .modal-header
                     button.close data-dismiss="modal" type="button"  &times;
-                    h2.modal-title Just A Simple Question!
-                    h3.modal-title Where are you now?
+                    h1.modal-title Where Are You Leaving From?
+                    h5.modal-title We will give you recommendations of the best and cheapest flight routes to your favorite movie location, so please input the city you are flying from.
                   .modal-body
                     form
                       div.form-group
-                        input.form-control.input-lg placeholder="Please Enter Your Location ..." type="text"
+                        input.form-control.input-lg placeholder="From" type="text"
                   .modal-footer
                     a.btn.btn-default href="/movie/#{movie[:title]}" type="button"  Submit
-                    button.btn.btn-default data-dismiss="modal" type="button"  Close
+                    / button.btn.btn-default data-dismiss="modal" type="button"  Close
