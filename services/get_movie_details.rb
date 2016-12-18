@@ -6,7 +6,6 @@ class GetMovieDetails
 
   def self.call(params)
     result = HTTP.get("#{MovlogApp.config.MOVLOG_API}/location/#{params[:title]}")
-    puts "get location result: #{result.body}"
     Right(MovieDetailsRepresenter.new(MovieDetails.new)
                                  .from_json(result.body.to_s))
   rescue
