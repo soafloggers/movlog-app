@@ -26,7 +26,6 @@ class FindMoviesFromDB
   register :call_api_to_get_movie, lambda { |title|
     begin
       results = HTTP.get("#{MovlogApp.config.MOVLOG_API}/movie?search=#{title}/")
-      puts results.body.to_s+"!!!!!!!!!!!!"
       Right(MoviesSearchResultsRepresenter.new(MoviesSearchResults.new).from_json(results.body.to_s))
     rescue
       Left(Error.new('Our servers failed - we are investigating!'))
