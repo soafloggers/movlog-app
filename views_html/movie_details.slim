@@ -1,15 +1,23 @@
 div.container-fluid
+  h2
+    |Results for:
+    span style="color:#1278A1;margin-left:5px;" #{@movie_details.title}
+
 
 div.container
   div.well.well-sm style="width:99%;" description
-
+          
 div.container
-  h2
-    | Filming locations:
-    span
-      - @movie_details&.locations&.each do |location|
-        button.btn.btn-warning.location-btn type="button" style='margin-left:10px;' 
-          | #{location.name}
+  h2 
+    |Filming locations:
+    span.div.dropdown
+      button.btn.btn-primary.btn-lg.dropdown-toggle data-toggle="dropdown" type="button" style="margin-left:5px; background-color:#1278A1;"
+        | Please Select Your Target Location ...
+        span.caret
+      ul.dropdown-menu
+        - @movie_details&.locations&.each do |location|
+          li
+            a href="#"  #{location.name}
 
 div.container
   div.row.col-sm-6 style='margin-top:20px;'
