@@ -4,9 +4,10 @@ table class="table" id="movies_table"
     - @data&.movies&.each&.with_index do |movie, index|
       tr class="movies_row" id="movie[#{index}].row"
         td 
-          h3 style="margin-left:20px;" Search Results:
+          h3.text-center style="color:white;" Search Results:
           span class="movie_title" id="movie[#{index}].title" 
-            button.list-group-item id="movie[#{index}].link" data-toggle="modal" data-target="#myModal" style="margin-top:20px;" #{movie[:title]}
+            / button.list-group-item  id="movie[#{index}].link" data-toggle="modal" data-target="#myModal" style="width:50%; margin-top:20px;" #{movie[:title]}
+            button.btn.btn-primary.list-group-item id="movie[#{index}].link" data-toggle="modal" data-target="#myModal" style="width:50%; margin-top:20px; margin-left:25%;" #{movie[:title]}
             /! Modal
             #myModal.modal.fade role="dialog" 
               .modal-dialog

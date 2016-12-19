@@ -19,7 +19,7 @@ class MovlogApp < Sinatra::Base
         flash[:error] = 'Could not find movie'
       end
     end
-    slim :movie
+    slim :movies_table
   end
 
   get "/movie/:title/?" do
