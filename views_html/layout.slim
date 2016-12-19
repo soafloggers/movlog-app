@@ -10,16 +10,14 @@ html
     / Custom CSS
     link rel='stylesheet' href='/css/style.css'
 
-  body
-    div.container
-      div.jumbotron id='html_body'
-        h1
-          a.text-info  href="/" style="color: inherit; text-decoration: inherit;" Movlog
-        p.text-info Find the filming locations of your favorite movie and start your journey!
-
-      section
-        include :flash_bar
-        == yield
+  body style="background-image: url(.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #616769;"
+    / #464646
+    == yield
         
     / JQuery and Bootstrap JS
     script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
@@ -27,3 +25,4 @@ html
     script src="/js/api.js"
     script src="/js/rooms.js"
     script src="/js/init.js"
+    script src="/js/smooth_scroll.js"

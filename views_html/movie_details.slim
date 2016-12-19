@@ -1,17 +1,17 @@
 div.container-fluid
-  h2
+  h2.text-center style="color:white;"
     |Results for:
-    span style="color:#1278A1;margin-left:5px;" #{@movie_details.title}
+    span style="color:#337AB7;text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; margin-left:10px;" #{@movie_details.title}
 
 
 div.container
   div.well.well-sm style="width:99%;" description
           
 div.container
-  h2 
+  h2.text-center style="color:white;"
     |Filming locations:
     span.div.dropdown
-      button.btn.btn-primary.btn-lg.dropdown-toggle data-toggle="dropdown" type="button" style="margin-left:5px; background-color:#1278A1;"
+      button.btn.btn-primary.btn-lg.dropdown-toggle.location-btn data-toggle="dropdown" type="button" style="margin-left:10px;"
         | Please Select Your Target Location ...
         span.caret
       ul.dropdown-menu

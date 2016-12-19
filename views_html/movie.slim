@@ -1,6 +1,19 @@
-div.container-fluid
-  div.col-xs-5
-    form role="form" action="/movie" method="get" id="search-form"
+div.container-fluid.text-center style="background: url(http://cdn.pcwallart.com/images/time-square-day-wallpaper-2.jpg) no-repeat center center;
+  background-size: cover;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  height: 100vh;"
+  a.h1.text-info  href="/" style="font-size:80px; color: inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;" Movlog
+  h3.text-info style="text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"  Find the filming locations of your favorite movie and start your journey!
+  a.btn.btn-primary.btn-lg href="#search" role="button" style="margin-top:5px; box-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;" Get Started
+
+div.container-fluid.text-center id="search" style="background: url(http://media.architecturaldigest.com/photos/5699802bc6772b7614567435/2:1/w_2560/new-york-city-guide.jpg) no-repeat center center;
+  background-size: cover;
+  padding-top: 25%;
+  padding-bottom: 20%;
+  height: 100vh;"
+  div.col-sm-6.col-sm-offset-3
+    form role="form" action="/movie" method="get" id="search-form" 
       div.form-movie
         label for='title'
         .input-group.input-group-lg
@@ -15,7 +28,8 @@ table class="table" id="movies_table"
     - @data&.movies&.each&.with_index do |movie, index|
       tr class="movies_row" id="movie[#{index}].row"
         td 
-          span class="movie_title" id="movie[#{index}].title"
+          h3.text-center style="color:white;" Search Results:
+          span class="movie_title" id="movie[#{index}].title" 
             button.list-group-item id="movie[#{index}].link" data-toggle="modal" data-target="#myModal" style="margin-top:20px;" #{movie[:title]}
             /! Modal
             #myModal.modal.fade role="dialog" 
@@ -23,11 +37,11 @@ table class="table" id="movies_table"
                 /! Modal content
                 .modal-content
                   .modal-header
-                    button.close data-dismiss="modal" type="button"  &times;
+                    button.close data-dismiss="modal" type="button" &times;
                     h1.modal-title Where Are You Leaving From?
                     h5.modal-title We will give you recommendations of the best and cheapest flight routes to your favorite movie location, so please input the city you are flying from.
                   .modal-body
-                    form
+                    form name="input_location" action="/movie/#{movie[:title]}" method="get"
                       div.form-group
                         input.form-control.input-lg placeholder="From" type="text"
                   .modal-footer

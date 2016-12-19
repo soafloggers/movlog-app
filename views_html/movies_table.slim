@@ -1,0 +1,25 @@
+table class="table" id="movies_table"
+  thead 
+  tbody
+    - @data&.movies&.each&.with_index do |movie, index|
+      tr class="movies_row" id="movie[#{index}].row"
+        td 
+          h3 style="margin-left:20px;" Search Results:
+          span class="movie_title" id="movie[#{index}].title" 
+            button.list-group-item id="movie[#{index}].link" data-toggle="modal" data-target="#myModal" style="margin-top:20px;" #{movie[:title]}
+            /! Modal
+            #myModal.modal.fade role="dialog" 
+              .modal-dialog
+                /! Modal content
+                .modal-content
+                  .modal-header
+                    button.close data-dismiss="modal" type="button" &times;
+                    h1.modal-title Where Are You Leaving From?
+                    h5.modal-title We will give you recommendations of the best and cheapest flight routes to your favorite movie location, so please input the city you are flying from.
+                  .modal-body
+                    form name="input_location" action="/movie/#{movie[:title]}" method="get"
+                      div.form-group
+                        input.form-control.input-lg placeholder="From" type="text"
+                  .modal-footer
+                    a.btn.btn-default href="/movie/#{movie[:title]}" type="button"  Submit
+                    / button.btn.btn-default data-dismiss="modal" type="button"  Close
