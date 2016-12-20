@@ -1,13 +1,16 @@
-div.container-fluid.text-center style="background: url(http://cdn.pcwallart.com/images/time-square-day-wallpaper-2.jpg) no-repeat center center;
+div.container-fluid.text-center style="background: url(image/home_cover.jpg) no-repeat center center;
   background-size: cover;
   padding-top: 20%;
   padding-bottom: 20%;
   height: 100vh;"
-  a.h1.text-info  href="/" style="font-size:80px; color: inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;" Movlog
-  h3.text-info style="text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"  Find the filming locations of your favorite movie and start your journey!
-  a.btn.btn-primary.btn-lg href="#search" role="button" style="margin-top:5px; box-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;" Get Started
+  a.h1.text-info  href="/" style="font-size:80px; color: inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;" 
+    |Movlog
+  h3.text-info style="text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"  
+    |Find the filming locations of your favorite movie and start your journey!
+  a.btn.btn-primary.btn-lg href="#search" role="button" style="margin-top:5px; box-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;" 
+    |Get Started
 
-div.container-fluid.text-center id="search" style="background: url(http://media.architecturaldigest.com/photos/5699802bc6772b7614567435/2:1/w_2560/new-york-city-guide.jpg) no-repeat center center;
+div.container-fluid.text-center id="search" style="background: url(image/search_bar.jpg) no-repeat center center;
   background-size: cover;
   padding-top: 25%;
   padding-bottom: 20%;
@@ -21,29 +24,3 @@ div.container-fluid.text-center id="search" style="background: url(http://media.
           .input-group-btn
             button.btn.btn-default id="movie_search_submit" type="submit" style="margin-bottom:20px;"
               i.glyphicon.glyphicon-search
-
-/ table class="table" id="movies_table"
-/   thead 
-/   tbody
-/     - @data&.movies&.each&.with_index do |movie, index|
-/       tr class="movies_row" id="movie[#{index}].row"
-/         td 
-/           h3.text-center style="color:white;" Search Results:
-/           span class="movie_title" id="movie[#{index}].title" 
-/             button.list-group-item id="movie[#{index}].link" data-toggle="modal" data-target="#myModal" style="margin-top:20px;" #{movie[:title]}
-/             /! Modal
-/             #myModal.modal.fade role="dialog" 
-/               .modal-dialog
-/                 /! Modal content
-/                 .modal-content
-/                   .modal-header
-/                     button.close data-dismiss="modal" type="button" &times;
-/                     h1.modal-title Where Are You Leaving From?
-/                     h5.modal-title We will give you recommendations of the best and cheapest flight routes to your favorite movie location, so please input the city you are flying from.
-/                   .modal-body
-/                     form name="input_location" action="/movie/#{movie[:title]}" method="get"
-/                       div.form-group
-/                         input.form-control.input-lg placeholder="From" type="text"
-/                   .modal-footer
-/                     a.btn.btn-default href="/movie/#{movie[:title]}" type="button"  Submit
-                    / button.btn.btn-default data-dismiss="modal" type="button"  Close
