@@ -5,7 +5,7 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
     |Movlog
   h1.text-info.text-center style="color:#292B3C; text-decoration: underline; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; margin-left:20px;"
     |#{@movie_details.title}
-  div.container style="background: rgba(255, 255, 255, .6); color:black; height: 20vh; border:none; border-radius:10px; margin-top:20px;"
+  div.container style="background: rgba(255, 255, 255, .7); color:black; height: 20vh; border:none; border-radius:10px; margin-top:20px;"
     h4
       |description
 
@@ -19,11 +19,11 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
         ul.dropdown-menu
           - @movie_details&.locations&.each do |location|
             li
-              a href="#"  #{location.name}
+              a href="#" #{location.name}
 
   div.container
     div.row.col-sm-6 style='margin-top:20px;'
-      div.panel.panel-default
+      div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
         div.panel-heading
           | Rooms Info:
           span.dropup style="margin-left: 5px;"
@@ -32,14 +32,14 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="room-city-list"
               li
-                a href="#"  City 1
+                a href="#" City 1
         div.panel-body
           div.list-group id="room-item-list"
             - @rooms&.each do |room|
-              a.list-group-item href="#"  First Room
+              a.list-group-item href="#" First Room
               
     div.row.col-sm-6 style='margin-top:20px; margin-left:20px;'
-      div.panel.panel-default
+      div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
         div.panel-heading
           | Airlines Info: From
           span.dropup style="margin-left: 5px;"
