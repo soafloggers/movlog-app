@@ -14,12 +14,12 @@ class MovlogApp < Sinatra::Base
     else
       result = FindMoviesFromOMDB.call(movie_request)
       if result.success?
-        @data = result.value
+        @data = result.value && results.value.movies&.count != 0
       else
-        flash[:error] = result.value.message
+        flash[:error] = 'Could not find movie'
       end
     end
-    slim :movie
+    slim :movies_table
   end
 
   get "/movie/:title/?" do

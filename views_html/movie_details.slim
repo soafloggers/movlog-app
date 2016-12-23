@@ -1,15 +1,23 @@
 div.container-fluid
+  h2.text-center style="color:white;"
+    |Results for:
+    span style="color:#337AB7;text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; margin-left:10px;" #{@movie_details.title}
+
 
 div.container
   div.well.well-sm style="width:99%;" description
-
+          
 div.container
-  h2
-    | Filming locations:
-    span
-      - @movie_details&.locations&.each do |location|
-        button.btn.btn-warning.location-btn type="button" style='margin-left:10px;' 
-          | #{location.name}
+  h2.text-center style="color:white;"
+    |Filming locations:
+    span.div.dropdown
+      button.btn.btn-primary.btn-lg.dropdown-toggle.location-btn data-toggle="dropdown" type="button" style="margin-left:10px;"
+        | Please Select Your Target Location ...
+        span.caret
+      ul.dropdown-menu
+        - @movie_details&.locations&.each do |location|
+          li
+            a href="#"  #{location.name}
 
 div.container
   div.row.col-sm-6 style='margin-top:20px;'
@@ -17,8 +25,8 @@ div.container
       div.panel-heading
         | Rooms Info:
         span.dropup style="margin-left: 5px;"
-          button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-            | Room Title
+          button.btn.btn-default.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button"
+            | Location
             span.caret style="margin-left: 5px;"
           ul.dropdown-menu id="room-city-list"
             li
