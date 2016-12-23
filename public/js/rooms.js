@@ -68,6 +68,8 @@ function find_rooms(location) {
 		contentType: "application/json",
 		dataType: "json",
 		success: function(data) {
+      cities = [];
+      city_room = {};
       console.log('location: '+data.location);
       classify_rooms(data.rooms);
       show_cities(cities);
