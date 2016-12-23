@@ -19,7 +19,7 @@ class FindMoviesFromOMDB
   register :call_api_to_load_movie, lambda { |title|
     begin
       Right(HTTP.post("#{MovlogApp.config.MOVLOG_API}/movie",
-                      json: { url: get_url(title) }))
+                      json: { url: get_url(title.gsub(//, '+')) }))
     rescue
       Left(Error.new('Our servers failed - we are investigating!'))
     end
