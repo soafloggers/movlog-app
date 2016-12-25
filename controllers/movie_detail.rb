@@ -2,10 +2,6 @@
 
 # MovlogAPP web service
 class MovlogApp < Sinatra::Base
-  get "/?" do
-    slim :movie
-  end
-
   get "/rooms/:location/?" do
     room_request = RoomRequest.call(params)
     results = FindRoomsFromApi.call(room_request)

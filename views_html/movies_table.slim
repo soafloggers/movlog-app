@@ -5,11 +5,13 @@ div.container-fluid.text-center style="background: url(/image/movies_table.jpg) 
     |Movlog
   table class="table" id="movies_table" style="padding-top: 20%;"
     tbody
+      tr class="movies_row" style="margin-top:20px;"
+        td style="border:none;"
+          h3.text-info.text-center style="text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
+            |Search Results:
       - @data&.movies&.each&.with_index do |movie, index|
         tr class="movies_row" id="movie[#{index}].row" style="margin-top:20px;"
           td style="border:none;"
-            h3.text-info.text-center style="text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
-              |Search Results:
             span class="movie_title" id="movie[#{index}].title"
               / button.list-group-item  id="movie[#{index}].link" data-toggle="modal" data-target="#myModal" style="width:50%; margin-top:20px;" #{movie[:title]}
               button.button1.btn-lg id="movie[#{index}].link" data-toggle="modal" data-target="#myModal" style="width:40%; margin-top:20px; text-align:center;

@@ -11,10 +11,6 @@ function create_city_element(city) {
   return '<li><a>'+city+'</a></li>';
 }
 
-function create_city_btn(city) {
-  return city+'<span class="caret" style="margin-left: 5px;"></span>'
-}
-
 function show_rooms(city) {
   var rooms = city_room[city];
   var rooms_content = '';
@@ -24,7 +20,7 @@ function show_rooms(city) {
     var room = rooms[i];
     rooms_content += create_room_element(room);
   }
-  $('#room-city-btn').html(create_city_btn(city));
+  $('#room-city-btn span:eq(0)').text(city);
   $('#room-item-list').html(rooms_content);
 }
 

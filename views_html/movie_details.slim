@@ -4,7 +4,7 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
   a.h1.text-info href="/" style="display:block; text-align: center; font-size:80px; color:inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;"
     | Movlog
   h1.text-info.text-center style="color:#292B3C; text-decoration: underline; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; margin-left:20px;"
-    |#{@movie_details.title}
+    |#{@movie_details.movie.title}
   div.container style="background: rgba(255, 255, 255, .7); color:black; height: 20vh; border:none; border-radius:10px; margin-top:20px;"
     h4
       | description
@@ -28,7 +28,7 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
           | Rooms:
           span.dropup style="margin-left: 5px;"
             button.btn.btn-default.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button"
-              span.title Location
+              span Location
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="room-city-list"
 

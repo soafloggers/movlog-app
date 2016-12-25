@@ -5,10 +5,10 @@ class MovieDetailsView
   SHORT_STR_SIZE = 80
   MOVIE_URL_PREFIX = 'http://www.imdb.com/title/'
 
-  attr_reader :title, :movie_url, :locations
+  attr_reader :movie, :locations, :movie_url
 
   def initialize(moive_details)
-    @title = moive_details.movie_title
+    @movie = moive_details.movie
     @locations = format_all_locations(moive_details.locations)
   end
 
@@ -24,9 +24,7 @@ class MovieDetailsView
     LocationView.new(
       id = location.id,
       movie_id = location.movie_id,
-      name = location.name,
-      lat = location.lat,
-      lng = location.lng
+      name = location.name
     )
   end
 
