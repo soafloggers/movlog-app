@@ -5,6 +5,6 @@ class ErrorFlattener < Roar::Decorator
   collection :errors
 
   def to_s
-    @represented.errors.join('; ')
+    @represented.errors&.join('; ')
   end
 end

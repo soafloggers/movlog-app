@@ -26,11 +26,12 @@ class FindMoviesFromOMDB
   }
 
   register :return_api_result, lambda { |http_result|
-    if http_result.status.code == 200
-      Right(MoviesSearchResultsRepresenter.new(MoviesSearchResults.new).from_json(http_result.body.to_s))
+    data = http_result.body.to_s
+    if http_result.status.code == 202
+      Right(MoviesSearchResultsRepresenter.new(MoviesSearchResults.new).from_json(data))
     else
       message = ErrorFlattener.new(
-        ApiErrorRepresenter.new(ApiError.new).from_json(data.to_json)
+        ApiErrorRepresenter.new(ApiError.new).from_json(data)
       ).to_s
       Left(Error.new(message))
     end
