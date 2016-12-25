@@ -2,64 +2,63 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
   background-size: cover;
   height: 100vh;"
   a.h1.text-info href="/" style="display:block; text-align: center; font-size:80px; color:inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;"
-    |Movlog
+    | Movlog
   h1.text-info.text-center style="color:#292B3C; text-decoration: underline; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; margin-left:20px;"
     |#{@movie_details.title}
   div.container style="background: rgba(255, 255, 255, .7); color:black; height: 20vh; border:none; border-radius:10px; margin-top:20px;"
     h4
-      |description
+      | description
 
   div.container
     h2.text-center style="color:#292B3C; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
       |Filming locations:
       span.div.dropdown
-        button.button1.btn-lg.dropdown-toggle.location-btn data-toggle="dropdown" type="button" style="box-shadow: 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff; border:none; margin-left:20px;"
-          | Please Select Your Target Location...
+        button.button1.btn-lg.dropdown-toggle data-toggle="dropdown" type="button" style="box-shadow: 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff; border:none; margin-left:20px;"
+          span Please Select Your Target Location...
           span.caret
         ul.dropdown-menu
           - @movie_details&.locations&.each do |location|
             li
-              a href="#" #{location.name}
+              a.location-btn #{location.name}
 
   div.container
     div.row.col-sm-6 style='margin-top:20px;'
       div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
         div.panel-heading
-          | Rooms Info:
+          | Rooms:
           span.dropup style="margin-left: 5px;"
             button.btn.btn-default.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button"
-              | Location
+              span.title Location
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="room-city-list"
-              li
-                a href="#" City 1
+
         div.panel-body
           div.list-group id="room-item-list"
             - @rooms&.each do |room|
-              a.list-group-item href="#" First Room
+              a.list-group-item First Room
               
     div.row.col-sm-6 style='margin-top:20px; margin-left:20px;'
       div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
         div.panel-heading
-          | Airlines Info: From
+          span Airlines: From
           span.dropup style="margin-left: 5px;"
             button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
-              | Origin
+              span Origin
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="flight-from-list"
               li
-                a href="#"  Kaohsiung Airport
-
+                a Kaohsiung Airport
+          
+          span style="margin-left: 5px;" To
           span.dropup style="margin-left: 5px;"
-            span To
             button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" style='margin-left:5px;'
               span Destination
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="flight-to-list"
               li
-                a href="#"  New York XXX Airport
+                a  New York XXX Airport
 
         div.panel-body
           div.list-group id="flight-item-list"
             - @flights&.each do |flight|
-              a.list-group-item href="#"  First item
+              a.list-group-item  First item
