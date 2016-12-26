@@ -5,7 +5,7 @@ class GetMovieDetails
   extend Dry::Monads::Either::Mixin
 
   def self.call(params)
-    result = HTTP.get("#{MovlogApp.config.MOVLOG_API}/location/#{params[:title]}")
+    result = HTTP.get("#{MovlogApp.config.MOVLOG_API}/movie/details/#{params[:title]}")
     Right(MovieDetailsRepresenter.new(MovieDetails.new)
                                  .from_json(result.body.to_s))
   rescue

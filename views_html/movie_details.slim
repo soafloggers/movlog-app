@@ -9,7 +9,7 @@ div.container-fluid.text-center style="background: url(/image/movie_details.jpg)
     |#{@movie_details.title}
   div.container style="background: rgba(255, 255, 255, .7); color:black; height: 20vh; border:none; border-radius:10px; margin-top:20px;"
     h4
-      |description
+      | description
 
   div.container
     h2.text-center style="color:#292B3C; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
@@ -21,37 +21,37 @@ div.container-fluid.text-center style="background: url(/image/movie_details.jpg)
         ul.dropdown-menu
           - @movie_details&.locations&.each do |location|
             li
-              a href="#" #{location.name}
+              a.location-btn #{location.name}
 
   div.container
     div.row.col-sm-6 style='margin-top:20px;'
       div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
         div.panel-heading
-          | Rooms Info:
+          | Rooms:
           span.dropup style="margin-left: 5px;"
             button.button1.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
               | Location
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="room-city-list"
-              li
-                a href="#" City 1
+
         div.panel-body
           div.list-group id="room-item-list"
             - @rooms&.each do |room|
-              a.list-group-item href="#" First Room
+              a.list-group-item First Room
               
     div.row.col-sm-6 style='margin-top:20px; margin-left:20px;'
       div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
         div.panel-heading
-          | Airlines Info: From
+          span Airlines: From
           span.dropup style="margin-left: 5px;"
             button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
               | Origin
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="flight-from-list"
               li
-                a href="#"  Kaohsiung Airport
-
+                a Kaohsiung Airport
+          
+          span style="margin-left: 5px;" To
           span.dropup style="margin-left: 5px;"
             span To
             button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
@@ -59,9 +59,9 @@ div.container-fluid.text-center style="background: url(/image/movie_details.jpg)
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="flight-to-list"
               li
-                a href="#"  New York XXX Airport
+                a  New York XXX Airport
 
         div.panel-body
           div.list-group id="flight-item-list"
             - @flights&.each do |flight|
-              a.list-group-item href="#"  First item
+              a.list-group-item  First item

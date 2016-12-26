@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-MovieDetails = Struct.new :movie_title, :locations
+MovieDetails = Struct.new :movie, :locations
