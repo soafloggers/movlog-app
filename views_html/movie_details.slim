@@ -1,9 +1,11 @@
-div.container-fluid style="background: url(https://s1.kkday.com/images/product/1530/20150528021141_WdfjZ.jpg) no-repeat center center;
+div.container-fluid.text-center style="background: url(/image/movie_details.jpg) no-repeat center center;
   background-size: cover;
+  padding-top:3%;
   height: 100vh;"
-  a.h1.text-info href="/" style="display:block; text-align: center; font-size:80px; color:inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;"
+  a.h1.text-info href="/" style="text-align: center; font-size:80px; color:inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;"
     |Movlog
-  h1.text-info.text-center style="color:#292B3C; text-decoration: underline; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; margin-left:20px;"
+  h1.text-info style="color:white; text-shadow: 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E; margin-left:20px;"
+    img src="/image/movie_icon.png" alt="Movie Icon" style="border-radius:5px; border:2px solid white; margin-right:15px; width:60px; height:60px;"
     |#{@movie_details.title}
   div.container style="background: rgba(255, 255, 255, .7); color:black; height: 20vh; border:none; border-radius:10px; margin-top:20px;"
     h4
@@ -13,7 +15,7 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
     h2.text-center style="color:#292B3C; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
       |Filming locations:
       span.div.dropdown
-        button.button1.btn-lg.dropdown-toggle.location-btn data-toggle="dropdown" type="button" style="box-shadow: 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff, 0px 0px 3px #fff; border:none; margin-left:20px;"
+        button.button1.btn-lg.dropdown-toggle.location-btn data-toggle="dropdown" type="button" style="margin-left:20px;"
           | Please Select Your Target Location...
           span.caret
         ul.dropdown-menu
@@ -27,7 +29,7 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
         div.panel-heading
           | Rooms Info:
           span.dropup style="margin-left: 5px;"
-            button.btn.btn-default.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button"
+            button.button1.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
               | Location
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="room-city-list"
@@ -43,7 +45,7 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
         div.panel-heading
           | Airlines Info: From
           span.dropup style="margin-left: 5px;"
-            button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button"
+            button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
               | Origin
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="flight-from-list"
@@ -52,7 +54,7 @@ div.container-fluid style="background: url(https://s1.kkday.com/images/product/1
 
           span.dropup style="margin-left: 5px;"
             span To
-            button.btn.btn-default.dropdown-toggle data-toggle="dropdown" type="button" style='margin-left:5px;'
+            button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
               span Destination
               span.caret style="margin-left: 5px;"
             ul.dropdown-menu id="flight-to-list"
