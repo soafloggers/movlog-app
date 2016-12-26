@@ -3,37 +3,37 @@ div.container-fluid.text-center style="background: url(/image/movie_details.jpg)
   padding-top:3%;
   height: 100vh;
   overflow:scroll;"
-  a.h1.text-info href="/" style="text-align: center; font-size:80px; color:inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;"
+  a.h1.text-shadow1 href="/"
     |Movlog
   h1 style="color:white; text-shadow: 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E; margin-left:20px;"
     img src="/image/movie_icon.png" alt="Movie Icon" style="border-radius:5px; border:2px solid white; margin-right:15px; width:50px; height:50px;"
     |#{@movie_details.movie.title}
   span
     div.container style="background: rgba(255, 255, 255, .5); color:black; width:90%; height: 20vh; border:none; border-radius:10px; margin-top:20px; text-align:left;"
-      h4 style="text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+      h4.text-shadow1 style="font-weight:bold;"
         |#{@movie_details.movie.plot}
   div.container style="margin-top:30px;"
     div.row style="display:flex; align-items:center;"
       div.col-sm-3
         img src="#{@movie_details.movie.poster}" style="border-radius:5px; border:2px solid white; width:202.5px; height:300px; margin-right:100px;"
-      div.col-sm-7 style="text-align:left; background: rgba(255, 255, 255, .5); border-radius:10px; "
-        h3 style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+      div.col-sm-7 style="text-align:left; background: rgba(255, 255, 255, .5); border-radius:10px;"
+        h3.text-shadow3
           img src="/image/rating.png" style="width:30px; height:30px; margin-right:10px;"
           |IMDb Rating: #{@movie_details.movie.rating}
-        h3.text-info style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+        h3.text-shadow3
           img src="/image/award.png" style="width:30px; height:30px; margin-right:10px;"
           |Awards: #{@movie_details.movie.awards}
-        h3.text-info style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+        h3.text-shadow3
           img src="/image/clock.png" style="width:30px; height:30px; margin-right:10px;"
           |Runtime: #{@movie_details.movie.runtime}
-        h3.text-info style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+        h3.text-shadow3
           img src="/image/director.png" style="width:30px; height:30px; margin-right:10px;"
           |Director: #{@movie_details.movie.director}
-        h3.text-info style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+        h3.text-shadow3
           img src="/image/cast.png" style="width:30px; height:30px; margin-right:10px;"
           |Cast: #{@movie_details.movie.actors}
       div.col-sm-2
-        a.btn.btn-primary.btn-lg href="#filming_locations" role="button" style="box-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
+        a.btn.btn-primary.btn-lg.box-shadow1 href="#filming_locations" role="button"
           |Next Step
       
 div.container-fluid.text-center id="filming_locations" style="background: url(http://disneyexaminer.com/wp-content/uploads/2014/04/disney-marvel-captain-america-winter-soldier-fight-scene-filming.jpg) no-repeat center center;
