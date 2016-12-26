@@ -1,67 +1,97 @@
 div.container-fluid.text-center style="background: url(/image/movie_details.jpg) no-repeat center center;
   background-size: cover;
   padding-top:3%;
-  height: 100vh;"
+  height: 100vh;
+  overflow:scroll;"
   a.h1.text-info href="/" style="text-align: center; font-size:80px; color:inherit; font-weight:1500; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff; text-decoration: inherit;"
     |Movlog
-  h1.text-info style="color:white; text-shadow: 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E; margin-left:20px;"
-    img src="/image/movie_icon.png" alt="Movie Icon" style="border-radius:5px; border:2px solid white; margin-right:15px; width:60px; height:60px;"
-    |#{@movie_details.title}
-  div.container style="background: rgba(255, 255, 255, .7); color:black; height: 20vh; border:none; border-radius:10px; margin-top:20px;"
-    h4
-      | description
+  h1 style="color:white; text-shadow: 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E, 0px 0px 5px #34495E; margin-left:20px;"
+    img src="/image/movie_icon.png" alt="Movie Icon" style="border-radius:5px; border:2px solid white; margin-right:15px; width:50px; height:50px;"
+    |#{@movie_details.movie.title}
+  span
+    div.container style="background: rgba(255, 255, 255, .5); color:black; width:90%; height: 20vh; border:none; border-radius:10px; margin-top:20px; text-align:left;"
+      h4 style="text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+        |#{@movie_details.movie.plot}
+  div.container style="margin-top:30px;"
+    div.row style="display:flex; align-items:center;"
+      div.col-sm-3
+        img src="#{@movie_details.movie.poster}" style="border-radius:5px; border:2px solid white; width:202.5px; height:300px; margin-right:100px;"
+      div.col-sm-7 style="text-align:left; background: rgba(255, 255, 255, .5); border-radius:10px; "
+        h3 style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+          img src="/image/rating.png" style="width:30px; height:30px; margin-right:10px;"
+          |IMDb Rating: #{@movie_details.movie.rating}
+        h3.text-info style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+          img src="/image/award.png" style="width:30px; height:30px; margin-right:10px;"
+          |Awards: #{@movie_details.movie.awards}
+        h3.text-info style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+          img src="/image/clock.png" style="width:30px; height:30px; margin-right:10px;"
+          |Runtime: #{@movie_details.movie.runtime}
+        h3.text-info style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+          img src="/image/director.png" style="width:30px; height:30px; margin-right:10px;"
+          |Director: #{@movie_details.movie.director}
+        h3.text-info style="color:#0C1D7D; font-weight:bold; text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;"
+          img src="/image/cast.png" style="width:30px; height:30px; margin-right:10px;"
+          |Cast: #{@movie_details.movie.actors}
+      div.col-sm-2
+        a.btn.btn-primary.btn-lg href="#filming_locations" role="button" style="box-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
+          |Next Step
+      
+div.container-fluid.text-center id="filming_locations" style="background: url(http://disneyexaminer.com/wp-content/uploads/2014/04/disney-marvel-captain-america-winter-soldier-fight-scene-filming.jpg) no-repeat center center;
+  background-size: cover;
+  padding-top: 3%;
+  padding-bottom: 20%;
+  height: 100vh;
+  overflow:scroll;"
+  h2.text-center style="color:#292B3C; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
+    |Filming locations:
+    span.dropdown
+      button.button1.btn-lg.dropdown-toggle.location-btn data-toggle="dropdown" type="button" style="margin-left:20px;"
+        span Please Select Your Target Location...
+        span.caret
+      ul.dropdown-menu
+        - @movie_details&.locations&.each do |location|
+          li
+            a.location-btn #{location.name}
 
   div.container
-    h2.text-center style="color:#292B3C; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
-      |Filming locations:
-      span.div.dropdown
-        button.button1.btn-lg.dropdown-toggle.location-btn data-toggle="dropdown" type="button" style="margin-left:20px;"
-          | Please Select Your Target Location...
-          span.caret
-        ul.dropdown-menu
-          - @movie_details&.locations&.each do |location|
+  div.row.col-sm-6 style='margin-top:20px;'
+    div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
+      div.panel-heading
+        | Rooms:
+        span.dropdown style="margin-left: 5px;"
+          button.button1.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
+            span Location
+            span.caret style="margin-left: 5px;"
+          ul.dropdown-menu id="room-city-list"
+
+      div.panel-body
+        div.list-group id="room-item-list"
+          - @rooms&.each do |room|
+            a.list-group-item First Room
+            
+  div.row.col-sm-6 style='margin-top:20px; margin-left:20px;'
+    div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
+      div.panel-heading
+        span Airlines: From
+        span.dropup style="margin-left: 5px;"
+          button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
+            span Origin
+            span.caret style="margin-left: 5px;"
+          ul.dropdown-menu id="flight-from-list"
             li
-              a.location-btn #{location.name}
+              a Kaohsiung Airport
+        
+        span style="margin-left: 5px;" To
+        span.dropup style="margin-left: 5px;"
+          span To
+          button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
+            span Destination
+            span.caret style="margin-left: 5px;"
+          ul.dropdown-menu id="flight-to-list"
+            li
+              a  New York XXX Airport
 
-  div.container
-    div.row.col-sm-6 style='margin-top:20px;'
-      div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
-        div.panel-heading
-          | Rooms:
-          span.dropup style="margin-left: 5px;"
-            button.button1.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
-              | Location
-              span.caret style="margin-left: 5px;"
-            ul.dropdown-menu id="room-city-list"
-
-        div.panel-body
-          div.list-group id="room-item-list"
-            - @rooms&.each do |room|
-              a.list-group-item First Room
-              
-    div.row.col-sm-6 style='margin-top:20px; margin-left:20px;'
-      div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
-        div.panel-heading
-          span Airlines: From
-          span.dropup style="margin-left: 5px;"
-            button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
-              | Origin
-              span.caret style="margin-left: 5px;"
-            ul.dropdown-menu id="flight-from-list"
-              li
-                a Kaohsiung Airport
-          
-          span style="margin-left: 5px;" To
-          span.dropup style="margin-left: 5px;"
-            span To
-            button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
-              span Destination
-              span.caret style="margin-left: 5px;"
-            ul.dropdown-menu id="flight-to-list"
-              li
-                a  New York XXX Airport
-
-        div.panel-body
-          div.list-group id="flight-item-list"
-            - @flights&.each do |flight|
-              a.list-group-item  First item
+      div.panel-body
+        div.list-group id="flight-item-list"
+          - @flights&.each do |flight|
+            a.list-group-item  First item
