@@ -10,6 +10,19 @@ class MovlogApp < Sinatra::Base
     movie_request = MovieRequest.call(params)
     results = FindMoviesFromApi.call(movie_request)
     if results.success?
+      @api_server = MovlogApp.config.API_SERVER
+      @data = results.value
+    else
+      flash[:error] = 'Could not find movie'
+    end
+    slim :movie
+  end
+
+  get "/movie/table?" do
+    movie_request = MovieRequest.call(params)
+    results = FindMoviesFromApi.call(movie_request)
+    if results.success?
+      @api_server = MovlogApp.config.API_SERVER
       @data = results.value
     else
       flash[:error] = 'Could not find movie'

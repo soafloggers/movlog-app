@@ -16,7 +16,7 @@ div.container-fluid.text-center style="background: url(/image/movies_table.jpg) 
             th style="border:none;"
               Table
         tbody
-          - @data&.movies&.each&.with_index do |movie, index|
+          - @data[:movies]&.each&.with_index do |movie, index|
             tr class="movies_row" id="movie[#{index}].row"
               td style="border:none;"
                 span class="movie_title" id="movie[#{index}].title"

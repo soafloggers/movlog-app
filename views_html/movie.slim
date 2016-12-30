@@ -26,3 +26,43 @@ div.container-fluid.text-center id="search" style="background: url(/image/search
           .input-group-btn
             button.btn.btn-default id="movie_search_submit" type="submit" style="margin-bottom:20px;"
               i.glyphicon.glyphicon-search
+
+    / .progress
+    /   .progress-bar.progress-bar-success.progress-bar-striped.active[
+    /     role="progressbar" aria-valuenow="10" aria-valuemin="0"
+    /     aria-valuemax="100" style="width:0%"]
+
+- if @data
+    .progress
+      .progress-bar.progress-bar-success.progress-bar-striped.active[
+        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+        aria-valuemax="100" style="width:0%"]
+
+    script src = "#{@api_server}/faye.js"
+    javascript:
+      var channel = "#{@data}";
+      var client = new Faye.Client("#{@api_server}/faye");
+      var bar = document.getElementsByClassName("progress-bar")[0];
+      var reg = /\:(\d+)%/
+      client.subscribe('/' + channel, function(message) {
+        var progress = bar.getAttribute("style")
+        var currentProgress = reg.exec(progress)[1]
+        
+        if (isNaN(message)) {
+          bar.setAttribute("style", "width:100%")
+          bar.setAttribute("class", "progress-bar progress-bar-danger progress-bar-striped")
+          bar.innerHTML = message
+        } else {
+          if (parseInt(message) > parseInt(currentProgress)) {
+            bar.setAttribute("aria-valuenow", message)
+            bar.setAttribute("style", "width:"+message+"%")
+            bar.innerHTML = message+"%"
+
+            if (message == "100") {
+              setTimeout(function () {
+                window.location = window.location.href.split('?')[0]
+              }, 2000);
+            }
+          }
+        }
+      });
