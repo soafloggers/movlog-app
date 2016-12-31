@@ -57,8 +57,8 @@ div.container-fluid.text-center id="filming_locations" style="background: url(ht
       div.panel-heading
         |Rooms:
         span.dropdown style="margin-left:5px;"
-          button.button1.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
-            span Location
+          button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
+            span id="room-city-btn" Location
             span.caret style="margin-left: 5px;"
           ul.dropdown-menu.scrollable-menu  role="menu" id="room-city-list"
 
@@ -71,7 +71,7 @@ div.container-fluid.text-center id="filming_locations" style="background: url(ht
         |Airlines: From
         span.dropdown style="margin-left: 5px;"
           button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
-            span id="origin_airport" Origin
+            span id="origin-airport" Origin
             span.caret style="margin-left: 5px;"
           ul.dropdown-menu.scrollable-menu id="flight-from-list"
             - @movie_details&.origin_airports&.each&.with_index do |airport, index|
@@ -81,12 +81,14 @@ div.container-fluid.text-center id="filming_locations" style="background: url(ht
         span style="margin-left: 5px;" To
         span.dropdown style="margin-left: 5px;"
           button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
-            span id="destination_airport" Destination
+            span id="destination-airport" Destination
             span.caret style="margin-left: 5px;"
           ul.dropdown-menu.scrollable-menu id="flight-to-list"
             li
               a  New York XXX Airport
-
+        button.btn.btn-default id="flights-search-btn" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
+          i.glyphicon.glyphicon-search
+          
       div.panel-body
         div.list-group id="flight-item-list"
           - @flights&.each do |flight|
