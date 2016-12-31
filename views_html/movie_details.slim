@@ -63,7 +63,7 @@ div.container-fluid.text-center id="filming_locations" style="background: url(ht
           ul.dropdown-menu.scrollable-menu  role="menu" id="room-city-list"
 
       div.panel-body
-        div.list-group id="room-item-list"
+        div.list-group.list_scrollable style="white-space:nowrap;" id="room-item-list"
             
   div.row.col-sm-6 style='margin-top:20px; margin-left:20px;'
     div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
@@ -84,12 +84,9 @@ div.container-fluid.text-center id="filming_locations" style="background: url(ht
             span id="destination-airport" Destination
             span.caret style="margin-left: 5px;"
           ul.dropdown-menu.scrollable-menu id="flight-to-list"
-            li
-              a  New York XXX Airport
+          
         button.btn.btn-default id="flights-search-btn" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
           i.glyphicon.glyphicon-search
           
       div.panel-body
-        div.list-group id="flight-item-list"
-          - @flights&.each do |flight|
-            a.list-group-item First item
+        div.list-group.list_scrollable style="white-space:nowrap;" id="flight-item-list"

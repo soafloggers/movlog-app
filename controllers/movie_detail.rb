@@ -17,7 +17,6 @@ class MovlogApp < Sinatra::Base
     airport_request = LocationRequest.call(params)
     results = FindAirportsFromApi.call(airport_request)
     if results.success?
-      puts results.value
       content_type 'application/json'
       results.value
     else
@@ -29,7 +28,6 @@ class MovlogApp < Sinatra::Base
     flight_request =  FlightRequest.call(params)
     results = FindFlightsFromApi.call(flight_request)
     if results.success?
-      puts results.value
       content_type 'application/json'
       results.value
     else

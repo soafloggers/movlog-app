@@ -48,6 +48,6 @@ class FindAirportsFromApi
   private_class_method
 
   def self.airports_url(location)
-    "#{MovlogApp.config.MOVLOG_API}/airports/#{location}"
+    "#{MovlogApp.config.MOVLOG_API}/airports/fuzzysearch/#{location}"
   end
 end

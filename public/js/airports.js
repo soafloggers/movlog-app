@@ -1,9 +1,9 @@
 function create_airport_element(ap) {
-  return '<li><a sky-id="'+sky_id(ap)+'">'+ap['name']+'</a></li>';
+  return '<li><a sky-id="'+sky_id(ap)+'">'+ap.name+'</a></li>';
 }
 
 function sky_id(ap) {
-  return ap['lat']+","+ap['lng']+"-Latlong"
+  return ap.lat+","+ap.lng+"-Latlong"
 }
 
 function click_ap_events() {
@@ -15,12 +15,10 @@ function click_ap_events() {
 }
 
 function show_airports(aps) {
-  console.log('all airports: '+aps.toString());
   var content = '';
 
   for(var i=0; i<aps.length; i++) {
-    var ap = aps[i];
-    content += create_airport_element(ap);
+    content += create_airport_element(aps[i]);
   }
   $('#flight-to-list').html(content).promise().done(function(){
     click_ap_events();

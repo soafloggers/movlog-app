@@ -9,4 +9,8 @@ $(function(){
     find_rooms($(this).text());
     find_airports($(this).text());
   });
+
+  $("#flights-search-btn").on("click", function(){
+    find_flights($("#origin-airport"), $("#destination-airport"));
+  })
 });
