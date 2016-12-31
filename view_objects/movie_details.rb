@@ -3,19 +3,21 @@ require_relative 'location'
 
 class MovieDetailsView
   SHORT_STR_SIZE = 80
-  MOVIE_URL_PREFIX = 'http://www.imdb.com/title/'
+  IMDB_URL = 'http://www.imdb.com/title/'
 
-  attr_reader :movie, :locations, :movie_url
+  attr_reader :movie, :locations, :movie_url, :origin_airports
 
-  def initialize(moive_details)
+  def initialize(moive_details, origin_airports)
     @movie = moive_details.movie
+    @movie_url = IMDB_URL+moive_details.movie.imdb_id
     @locations = format_all_locations(moive_details.locations)
+    @origin_airports = format_all_airports(origin_airports)
   end
 
   private
 
   def format_all_locations(locations)
-    new_postings = locations&.map do |location|
+    locations&.map do |location|
       formatted_location(location)
     end
   end
@@ -28,13 +30,18 @@ class MovieDetailsView
     )
   end
 
-  def original_attachment_url(attachment_url)
-    return unless attachment_url
-    CGI.unescape(attachment_url.gsub(FB_ATTACHED_URL_PREFIX, ''))
+  def format_all_airports(airports)
+    airports&.map do |airport|
+      formatted_airport(airport)
+    end
   end
 
-  def shortened(str, size)
-    return nil unless str
-    str.length < size ? str : str[0..size].gsub(/\s\w+\s*$/,'...')
+  def formatted_airport(airport)
+    AirportView.new(
+      name = airport['name'],
+      lat = airport['lat'],
+      lng = airport['lng'],
+      country_code = airport['country_code']
+    )
   end
 end

@@ -27,8 +27,7 @@ function show_rooms(city) {
 function click_city_events() {
   $('#room-city-list li').off('click');
   $('#room-city-list li').on('click', function(){
-    var city = $(this).text();
-    show_rooms(city);
+    show_rooms($(this).text());
   });
 }
 
