@@ -19,7 +19,7 @@ class MovlogApp < Sinatra::Base
 
   get "/movie/:title/?" do
     airports = Concurrent::Promise.execute {
-      JSON.parse(FindAirportsFromApi.call(LocationRequest.call(params)).value)
+      JSON.parse(FuzzySearchAirports.call(LocationRequest.call(params)).value)
     }
     movie_details = GetMovieDetails.call(params)
     if movie_details.success?

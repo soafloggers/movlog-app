@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Get rooms info from API
-class FindAirportsFromApi
+class FuzzySearchAirports
   extend Dry::Monads::Either::Mixin
   extend Dry::Container::Mixin
 
@@ -48,6 +48,6 @@ class FindAirportsFromApi
   private_class_method
 
   def self.airports_url(location)
-    "#{MovlogApp.config.MOVLOG_API}/airports/#{location}"
+    "#{MovlogApp.config.MOVLOG_API}/airports/fuzzysearch/#{location}"
   end
 end
