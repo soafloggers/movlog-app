@@ -20,15 +20,14 @@ function show_rooms(city) {
     var room = rooms[i];
     rooms_content += create_room_element(room);
   }
-  $('#room-city-btn span:eq(0)').text(city);
+  $('#room-city-btn').html(city);
   $('#room-item-list').html(rooms_content);
 }
 
 function click_city_events() {
   $('#room-city-list li').off('click');
   $('#room-city-list li').on('click', function(){
-    var city = $(this).text();
-    show_rooms(city);
+    show_rooms($(this).text());
   });
 }
 
@@ -37,8 +36,7 @@ function show_cities(cities) {
   var cities_content = '';
 
   for(var i=0; i<cities.length; i++) {
-    var city = cities[i];
-    cities_content += create_city_element(city);
+    cities_content += create_city_element(cities[i]);
   }
   $('#room-city-list').html(cities_content).promise().done(function(){
     click_city_events();
@@ -69,7 +67,6 @@ function find_rooms(location) {
       console.log('location: '+data.location);
       classify_rooms(data.rooms);
       show_cities(cities);
-      show_rooms(cities[0]);
     },
 		error: function(data){
       alert('find rooms failed');

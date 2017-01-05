@@ -73,3 +73,13 @@ a {
     justify-content: center;
     position: relative;
 }
+
+.list_scrollable {
+  overflow: scroll;
+  max-height: 400px;
+}
+
+.item_scrollable {
+  overflow: scroll;
+  max-width: 460px;
+}

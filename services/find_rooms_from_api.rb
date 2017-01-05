@@ -18,7 +18,7 @@ class FindRoomsFromApi
 
   register :call_api_to_find_rooms, lambda { |location|
     begin
-      Right(HTTP.get("#{MovlogApp.config.MOVLOG_API}/room/#{location}"))
+      Right(HTTP.get(rooms_url(location)))
     rescue
       Left(Error.new('Our servers failed - we are investigating!'))
     end
@@ -41,5 +41,11 @@ class FindRoomsFromApi
       step :call_api_to_find_rooms
       step :return_rooms_result
     end.call(room_request)
+  end
+
+  private_class_method
+
+  def self.rooms_url(location)
+    "#{MovlogApp.config.MOVLOG_API}/room/#{location}"
   end
 end

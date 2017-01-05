@@ -44,7 +44,7 @@ div.container-fluid.text-center id="filming_locations" style="background: url(ht
   h2.text-center style="color:#292B3C; text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff, 0px 0px 5px #fff;"
     |Filming locations:
     span.dropdown
-      button.button1.btn-lg.dropdown-toggle.location-btn data-toggle="dropdown" type="button" style="margin-left:20px;"
+      button.button1.btn-lg.dropdown-toggle data-toggle="dropdown" type="button" style="margin-left:20px;"
         span Please Select Your Target Location...
         span.caret
       ul.dropdown-menu.scrollable-menu
@@ -57,15 +57,13 @@ div.container-fluid.text-center id="filming_locations" style="background: url(ht
       div.panel-heading
         |Rooms:
         span.dropdown style="margin-left:5px;"
-          button.button1.dropdown-toggle id="room-city-btn" data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
-            span Location
+          button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
+            span id="room-city-btn" Location
             span.caret style="margin-left: 5px;"
           ul.dropdown-menu.scrollable-menu  role="menu" id="room-city-list"
 
       div.panel-body
-        div.list-group id="room-item-list"
-          - @rooms&.each do |room|
-            a.list-group-item First Room
+        div.list-group.list_scrollable style="white-space:nowrap;" id="room-item-list"
             
   div.row.col-sm-6 style='margin-top:20px; margin-left:20px;'
     div.panel.panel-default style="background: rgba(255, 255, 255, .7); font-weight: bold;"
@@ -73,22 +71,22 @@ div.container-fluid.text-center id="filming_locations" style="background: url(ht
         |Airlines: From
         span.dropdown style="margin-left: 5px;"
           button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh;"
-            span Origin
+            span id="origin-airport" Origin
             span.caret style="margin-left: 5px;"
           ul.dropdown-menu.scrollable-menu id="flight-from-list"
-            li
-              a Kaohsiung Airport
+            - @movie_details&.origin_airports&.each&.with_index do |airport, index|
+              li
+                a sky-id="#{airport['lat']},#{airport['lng']}-Latlong"  #{airport["name"]}
 
         span style="margin-left: 5px;" To
         span.dropdown style="margin-left: 5px;"
           button.button1.dropdown-toggle data-toggle="dropdown" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
-            span Destination
+            span id="destination-airport" Destination
             span.caret style="margin-left: 5px;"
           ul.dropdown-menu.scrollable-menu id="flight-to-list"
-            li
-              a  New York XXX Airport
-
+          
+        button.btn.btn-default id="flights-search-btn" type="button" style="border-radius:5px; height:5vh; margin-left:5px;"
+          i.glyphicon.glyphicon-search
+          
       div.panel-body
-        div.list-group id="flight-item-list"
-          - @flights&.each do |flight|
-            a.list-group-item First item
+        div.list-group.list_scrollable style="white-space:nowrap;" id="flight-item-list"

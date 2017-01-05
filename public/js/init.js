@@ -1,9 +1,16 @@
 $(function(){
   $(".dropdown-menu li a").click(function(){
-    $(this).closest(".dropdown, .dropup").find("span:eq(0)").text($(this).text());
+    var btn = $(this).closest(".dropdown, .dropup").find("span:eq(0)");
+    btn.text($(this).text());
+    btn.attr('sky-id', $(this).attr('sky-id'));
   });
 
   $(".location-btn").on("click", function(){
     find_rooms($(this).text());
+    find_airports($(this).text());
   });
+
+  $("#flights-search-btn").on("click", function(){
+    find_flights($("#origin-airport"), $("#destination-airport"));
+  })
 });
