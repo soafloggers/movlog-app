@@ -79,12 +79,12 @@ a.h1,a.btn,h1,h2,h3,h4,p,button {
 
 .list_scrollable {
   overflow: scroll;
-  max-height: 400px;
+  max-height: 500px;
 }
 
 .item_scrollable {
   overflow: scroll;
-  max-width: 460px;
+  max-width: 100%;
 }
 
 .glyphicon-refresh-animate {
