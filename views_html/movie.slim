@@ -27,11 +27,6 @@ div.container-fluid.text-center id="search" style="background: url(/image/search
             button.btn.btn-default id="movie_search_submit" type="submit" style="margin-bottom:20px;"
               i.glyphicon.glyphicon-search
 
-    / .progress
-    /   .progress-bar.progress-bar-success.progress-bar-striped.active[
-    /     role="progressbar" aria-valuenow="10" aria-valuemin="0"
-    /     aria-valuemax="100" style="width:0%"]
-
 - if @data
     .progress
       .progress-bar.progress-bar-success.progress-bar-striped.active[
@@ -60,7 +55,8 @@ div.container-fluid.text-center id="search" style="background: url(/image/search
 
             if (message == "100") {
               setTimeout(function () {
-                window.location = window.location.href.split('?')[0]
+                var hrefs = window.location.href.split('?');
+                window.location = hrefs[0]+'/table?'+hrefs[1];
               }, 2000);
             }
           }

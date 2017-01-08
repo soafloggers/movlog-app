@@ -9,25 +9,24 @@ class MovlogApp < Sinatra::Base
   get "/movie/?" do
     movie_request = MovieRequest.call(params)
     results = FindMoviesFromApi.call(movie_request)
-    if results.success?
+    if results.value[:channel_id]
       @api_server = MovlogApp.config.API_SERVER
-      @data = results.value
+      @data = results.value[:channel_id]
+      slim :movie
     else
-      flash[:error] = 'Could not find movie'
+      redirect "/movie/table?title=#{params[:title]}"
     end
-    slim :movie
   end
 
   get "/movie/table?" do
     movie_request = MovieRequest.call(params)
     results = FindMoviesFromApi.call(movie_request)
-    if results.success?
-      @api_server = MovlogApp.config.API_SERVER
-      @data = results.value
+    if results.success? && results.value[:movies].movies&.length != 0
+      @data = results.value[:movies]
+      slim :movies_table
     else
-      flash[:error] = 'Could not find movie'
+      redirect '/?not_found=1&#search'
     end
-    slim :movies_table
   end
 
   get "/movie/:title/?" do
