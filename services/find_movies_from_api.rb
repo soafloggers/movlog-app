@@ -36,18 +36,26 @@ class FindMoviesFromApi
   }
 
   register :retrieve_channel_id, lambda { |search_results|
-    if search_results[:http].status.code == 202
-      data = JSON.parse(search_results[:http].body.to_s)
-      search_results[:channel_id] = data['channel_id']
+    begin
+      if search_results[:http].status.code == 202
+        data = JSON.parse(search_results[:http].body.to_s)
+        search_results[:channel_id] = data['channel_id']
+      end
+      Right(search_results)
+    rescue
+      Left(Error.new('Our servers failed - we are investigating!'))
     end
-    Right(search_results)
   }
 
   register :retrieve_movies_result, lambda { |search_results|
-    if search_results[:http].status.code == 200
-      search_results[:movies] =  MoviesSearchResultsRepresenter.new(
-        MoviesSearchResults.new).from_json(search_results[:http].body.to_s)
+    begin
+      if search_results[:http].status.code == 200
+        search_results[:movies] =  MoviesSearchResultsRepresenter.new(
+          MoviesSearchResults.new).from_json(search_results[:http].body.to_s)
+      end
+      Right(search_results)
+    rescue
+      Left(Error.new('Our servers failed - we are investigating!'))
     end
-    Right(search_results)
   }
 end

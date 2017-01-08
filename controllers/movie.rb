@@ -12,7 +12,7 @@ class MovlogApp < Sinatra::Base
   get "/movie/?" do
     movie_request = MovieRequest.call(params)
     results = FindMoviesFromApi.call(movie_request)
-    if results.value[:channel_id]
+    if results.success? && results.value.key?(:channel_id)
       @data = results.value[:channel_id]
       redirect "/?title=#{params[:title]}&ch=#{@data}#search"
     else
