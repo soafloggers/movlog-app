@@ -3,8 +3,9 @@
 # MovlogAPP web service
 class MovlogApp < Sinatra::Base
   get "/?" do
-    puts params[:not_found]
     @not_found = params[:not_found]
+    @data = params[:ch]
+    @api_server = MovlogApp.config.API_SERVER
     slim :movie
   end
 
@@ -12,9 +13,8 @@ class MovlogApp < Sinatra::Base
     movie_request = MovieRequest.call(params)
     results = FindMoviesFromApi.call(movie_request)
     if results.value[:channel_id]
-      @api_server = MovlogApp.config.API_SERVER
       @data = results.value[:channel_id]
-      slim :movie
+      redirect "/?title=#{params[:title]}&ch=#{@data}#search"
     else
       redirect "/movie/table?title=#{params[:title]}"
     end

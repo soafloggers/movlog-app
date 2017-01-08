@@ -27,11 +27,11 @@ div.container-fluid.text-center id="search" style="background: url(/image/search
             button.btn.btn-default id="movie_search_submit" type="submit" style="margin-bottom:20px;"
               i.glyphicon.glyphicon-search
               
-- if @not_found
-  .alert.alert-danger.alert-dismissable.fade.in
-    a.close aria-label="close" data-dismiss="alert" href="#" &times;
-    strong MOVIE NOT FOUND! &nbsp; &nbsp;
-    | Please make sure you enter the right keyword!
+  - if @not_found
+    .alert.alert-danger.alert-dismissable.fade.in
+      a.close aria-label="close" data-dismiss="alert" href="#" &times;
+      strong MOVIE NOT FOUND! &nbsp; &nbsp;
+      | Please make sure you enter the right keyword!
     
 - if @data
     .progress
@@ -50,9 +50,7 @@ div.container-fluid.text-center id="search" style="background: url(/image/search
         var currentProgress = reg.exec(progress)[1]
         
         if (isNaN(message)) {
-          bar.setAttribute("style", "width:100%")
-          bar.setAttribute("class", "progress-bar progress-bar-danger progress-bar-striped")
-          bar.innerHTML = message
+          window.location = "/?not_found=1&#search";
         } else {
           if (parseInt(message) > parseInt(currentProgress)) {
             bar.setAttribute("aria-valuenow", message)
@@ -62,7 +60,7 @@ div.container-fluid.text-center id="search" style="background: url(/image/search
             if (message == "100") {
               setTimeout(function () {
                 var hrefs = window.location.href.split('?');
-                window.location = hrefs[0]+'/table?'+hrefs[1];
+                window.location = hrefs[0]+'movie/table?'+hrefs[1];
               }, 2000);
             }
           }
