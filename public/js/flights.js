@@ -19,7 +19,7 @@ function carrier(carrier) {
 }
 
 function direct(is_direct) {
-  var str = is_direct? '直飛' : '轉機';
+  var str = is_direct? 'Direct' : 'Transfer';
   return span(icon('transfer')+str);
 }
 
