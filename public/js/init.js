@@ -12,5 +12,20 @@ $(function(){
 
   $("#flights-search-btn").on("click", function(){
     find_flights($("#origin-airport"), $("#destination-airport"));
-  })
+  });
+
+  $("#search-form").on("submit", function(e){
+    e.preventDefault();
+    find_movies();
+  });
+
 });
+
+
+// $('.btn').on('click', function() {
+//     var $this = $(this);
+//   $this.button('loading');
+//     setTimeout(function() {
+//        $this.button('reset');
+//    }, 8000);
+// });

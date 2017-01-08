@@ -1,6 +1,6 @@
 function create_flight_element(flight) {
-  return '<a class="list-group-item item_scrollable" style="cursor: text">'+
-         flight_content(flight)+'</a>';
+  return '<p class="list-group-item item_scrollable" style="cursor: text">'+
+         flight_content(flight)+'</p>';
 }
 
 function flight_content(flight) {
@@ -32,7 +32,7 @@ function price(price) {
 }
 
 function span(content) {
-  return '<span style="margin:3px;">'+content+'</span>';
+  return '<span style="margin:10px;">'+content+'</span>';
 }
 
 function icon(style) {

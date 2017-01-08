@@ -26,7 +26,13 @@ div.container-fluid.text-center id="search" style="background: url(/image/search
           .input-group-btn
             button.btn.btn-default id="movie_search_submit" type="submit" style="margin-bottom:20px;"
               i.glyphicon.glyphicon-search
-
+              
+- if @not_found
+  .alert.alert-danger.alert-dismissable.fade.in
+    a.close aria-label="close" data-dismiss="alert" href="#" &times;
+    strong MOVIE NOT FOUND! &nbsp; &nbsp;
+    | Please make sure you enter the right keyword!
+    
 - if @data
     .progress
       .progress-bar.progress-bar-success.progress-bar-striped.active[

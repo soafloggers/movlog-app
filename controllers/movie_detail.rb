@@ -8,8 +8,6 @@ class MovlogApp < Sinatra::Base
     if results.success?
       content_type 'application/json'
       results.value
-    else
-      flash[:error] = results.value.message
     end
   end
 
@@ -19,8 +17,6 @@ class MovlogApp < Sinatra::Base
     if results.success?
       content_type 'application/json'
       results.value
-    else
-      flash[:error] = 'Could not find any airports -- we are investigating!'
     end
   end
 
@@ -30,8 +26,6 @@ class MovlogApp < Sinatra::Base
     if results.success?
       content_type 'application/json'
       results.value
-    else
-      flash[:error] = 'Could not find any flights -- we are investigating!'
     end
   end
 end

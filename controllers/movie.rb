@@ -3,6 +3,8 @@
 # MovlogAPP web service
 class MovlogApp < Sinatra::Base
   get "/?" do
+    puts params[:not_found]
+    @not_found = params[:not_found]
     slim :movie
   end
 
@@ -37,9 +39,6 @@ class MovlogApp < Sinatra::Base
     if movie_details.success?
       @movie_details = MovieDetailsView.new(movie_details.value, airports.value)
       slim :movie_details
-    else
-      flash[:error] = 'Could not find that movie -- we are investigating!'
-      redirect '/'
     end
   end
 end
